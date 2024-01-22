@@ -1,0 +1,360 @@
+@font-face {
+  font-family: helveticaneuebold;
+  src: url("helveticaneue_bold-webfont.woff2") format("woff2"), url("helveticaneue_bold-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: linik_sansregular;
+  src: url("liniksans-regular-webfont.woff2") format("woff2"), url("liniksans-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: linik_sansbold;
+  src: url("liniksans-bold-webfont.woff2") format("woff2"), url("liniksans-bold-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: linik_sanslight;
+  src: url("liniksans-light-webfont.woff2") format("woff2"), url("liniksans-light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: linik_sansmedium;
+  src: url("liniksans-medium-webfont.woff2") format("woff2"), url("liniksans-medium-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+/* ----- Header ----- */
+body.has-no-banner header {
+  border-bottom: 1px solid #ddd;
+  top: 0;
+  background-color: #fff;
+}
+body.has-no-banner .logo a {
+  color: #4969bb;
+}
+body.has-no-banner #cssmenu > ul > li > a {
+  color: var(--text-color);
+}
+
+/* ----- Filters ----- */
+.case_studies {
+  padding-bottom: 50px;
+}
+.case_studies-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+.case_studies-filters-title {
+  font-size: 22px;
+}
+.case_studies-filters-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.case_studies-filters-wrap > li > a {
+  font-size: 18px;
+  color: #333;
+  padding: 7px 20px;
+  background-color: #e0e6f7;
+  border-radius: 30px;
+}
+.case_studies-filters-wrap > li.has-dropdown {
+  position: relative;
+}
+.case_studies-filters-wrap > li.has-dropdown a {
+  padding-right: 50px;
+  display: flex;
+}
+.case_studies-filters-wrap > li.has-dropdown:after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background: url(../icons/arrow_down.svg) no-repeat center/100%;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.case_studies-filters-wrap > li.has-dropdown ul {
+  position: absolute;
+  background-color: #fff;
+  min-width: 250px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+.case_studies-filters-wrap > li.has-dropdown ul li a {
+  padding: 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.case_studies-filters-wrap > li.has-dropdown ul li a:hover {
+  background-color: #4969bb;
+  color: #fff;
+}
+.case_studies-filters-wrap > li.has-dropdown ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.case_studies-filters-wrap > li.has-dropdown:hover ul, .case_studies-filters-wrap > li.has-dropdown.active ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.case_studies-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.case_studies-feature_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.case_studies-inner-banner {
+  min-height: 80vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+.case_studies-inner-banner:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.case_studies-inner-banner > .container {
+  z-index: 9;
+}
+.case_studies-inner-banner-wrap {
+  max-width: 600px;
+}
+.case_studies-inner-cat-title {
+  font-size: 20px;
+  color: #ddd;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.case_studies-inner-title {
+  font-size: 42px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.case_studies-inner-short_dec {
+  font-size: 18px;
+  color: #fff;
+}
+.case_studies-inner-author {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.case_studies-inner-meta-title {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 30px;
+}
+.case_studies-inner-body {
+  padding: 90px 0;
+  font-size: 16px;
+}
+.case_studies-inner-body img {
+  max-width: 100%;
+}
+.case_studies-inner-body blockquote {
+  border-left: 5px solid #4969bb;
+  padding-left: 30px;
+  font-size: 26px;
+  font-weight: 400;
+  color: #999;
+}
+.case_studies-inner-body-wrap {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  gap: 60px;
+}
+.case_studies-inner-body-content h2, .case_studies-inner-body-content h3, .case_studies-inner-body-content h4, .case_studies-inner-body-content h5 {
+  margin-bottom: 30px;
+}
+.case_studies-sidebar h2 {
+  margin-bottom: 30px;
+}
+.case_studies-sidebar hr {
+  margin: 2em 0;
+}
+.case_studies-sidebar-wrap {
+  position: sticky;
+  top: 120px;
+}
+.case_studies-sidebar-options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.case_studies-sidebar-options li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.case_studies-sidebar-options li a {
+  color: #333;
+  display: flex;
+}
+.case_studies-sidebar-options li a span.case_studies-sidebar-options-arrow {
+  margin-left: auto;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #4969bb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.case_studies-sidebar-options li a span.case_studies-sidebar-options-arrow svg {
+  fill: #4969bb;
+}
+.case_studies-sidebar-options li a:hover {
+  text-decoration: underline;
+}
+.case_studies-sidebar-options li a:hover span.case_studies-sidebar-options-arrow {
+  background-color: #4969bb;
+}
+.case_studies-sidebar-options li a:hover span.case_studies-sidebar-options-arrow svg {
+  fill: #fff;
+}
+.case_studies-sidebar-options-insights {
+  padding: 0 0 0 18px;
+  margin: 0;
+}
+.case_studies-sidebar-options-insights li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.case_studies-sidebar-options-insights li a {
+  color: #333;
+  transition: all 0.3s ease;
+}
+.case_studies-sidebar-options-insights li a:hover {
+  text-decoration: underline;
+  color: #4969bb;
+}
+
+/* ----- Post Card ----- */
+.post_card {
+  margin-bottom: 50px;
+}
+.post_card-img {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.post_card-img a {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease;
+}
+.post_card-img img {
+  width: 100%;
+}
+.post_card-cat {
+  margin-bottom: 20px;
+}
+.post_card-cat-title {
+  font-size: 18px;
+  color: #4969bb;
+  text-transform: uppercase;
+  font-family: "linik_sansregular";
+}
+.post_card-body {
+  margin-top: 25px;
+}
+.post_card-body-content-title {
+  margin-bottom: 15px;
+}
+.post_card-body-content-title a {
+  font-size: 20px;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.post_card-body-content-title a:hover, .post_card-body-content-title a:focus {
+  color: #4969bb;
+}
+.post_card-body-content-text {
+  color: #333;
+  font-size: 16px;
+  font-size: 16px;
+}
+.post_card-featured {
+  position: relative;
+}
+.post_card-featured:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.post_card-featured-badge {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #fff;
+  font-size: 20px;
+  z-index: 9;
+}
+.post_card-featured .post_card-cat-title {
+  color: #fff;
+}
+.post_card-featured .post_card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 30px;
+  z-index: 9;
+}
+.post_card-featured .post_card-body-content-title a {
+  color: #fff;
+  font-weight: 400;
+}
+.post_card-featured .post_card-body-content-title a:hover, .post_card-featured .post_card-body-content-title a:focus {
+  text-decoration: underline;
+  color: #fff;
+}
+.post_card:hover .post_card-img a {
+  transform: scale(1.1);
+}
+
+/* ----- Contact Us ----- */
+.connect-to-us .right {
+  background-color: #f1f1f1;
+}
+
+/*# sourceMappingURL=insights-and-case-studies.css.map */
