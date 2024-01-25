@@ -30,9 +30,11 @@ class WebSiteController extends Controller
         return view('frontend.index',['meta'=>$this->meta,'featuredBlogs'=>$featuredBlogs,'recentBlogs'=>$recentBlogs,'relatedBlogs'=>$relatedBlogs]);
     }
 
-    public function viewBlog($title){
-        $blog = Blog::where('slug',$title)->first();
-        return view('frontend.blog',['meta'=>$this->meta,'blog'=>$blog]);
+    public function viewBlog($slug){
+        $blog = Blog::where('slug',$slug)->first();
+        // dd($blog);
+        $relatedBlogs = Blog::where('category_id',$blog->category_id)->where('id','!=',$blog->id)->orderBy('id','desc')->take(4)->get();
+        return view('frontend.blog',['meta'=>$this->meta,'blog'=>$blog,'relatedBlogs'=>$relatedBlogs]);
     }
 
     public function viewAbout(){

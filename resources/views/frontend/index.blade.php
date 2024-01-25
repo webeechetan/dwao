@@ -29,7 +29,7 @@
                 <div class="post_card post_card-featured">
                     <div class="post_card-featured-badge">Featured</div>
                     <div class="post_card-img">
-                        <a href="#"><img src="{{ $blog->thumbnail }}" class="w-100" alt=""></a>
+                        <a href="{{ route('blog.view',$blog->slug) }}"><img src="{{ $blog->featured_thumbnail_image }}" class="w-100" alt=""></a>
                     </div>
                     <div class="post_card-body">
                         <div class="post_card-cat">

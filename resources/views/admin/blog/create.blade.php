@@ -15,12 +15,12 @@
                 @csrf
                 <div class="row">
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Category </label>
                       <div class="input-group input-group-merge">
                         <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
-                        <select name="category_id" id="" class="form-control">
+                        <select name="category_id" id="" class="form-control" required>
                             <option value="">Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -30,12 +30,12 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Sub Category </label>
                       <div class="input-group input-group-merge">
                         <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
-                        <select name="sub_category_id" id="" class="form-control">
+                        <select name="sub_category_id" id="" class="form-control" required>
                             <option value="">Select Sub Category</option>
                             @foreach ($subCategories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -45,12 +45,12 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Publish Date</label>
                       <div class="input-group input-group-merge">
                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-watch"></i></span>
-                        <input type="date" class="form-control" id="basic-icon-default-fullname" name="publish_date">
+                        <input type="date" class="form-control" id="publish_date" name="publish_date">
                       </div>
                     </div>
                   </div>
@@ -60,7 +60,7 @@
                         <label class="form-label" for="basic-icon-default-company">Title <span class="text-danger"><b>*</b></span> </label>
                         <div class="input-group input-group-merge">
                           <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                          <input type="text" id="input_title" name="blog_title" class="form-control" placeholder="Title">
+                          <input type="text" required id="input_title" name="blog_title" class="form-control" placeholder="Title">
                         </div>
                           @error('blog_title')    
                               <div class="text-danger mt-2">{{ $message }}</div>
@@ -73,7 +73,7 @@
                       <label class="form-label" for="basic-icon-default-company">Slug</label>
                       <div class="input-group input-group-merge">
                       <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                      <input type="text" id="slug" name="slug" class="form-control" placeholder="Slug">
+                      <input type="text" id="slug" required name="slug" class="form-control" placeholder="Slug">
                       </div>
                       @error('slug')    
                           <div class="text-danger mt-2">{{ $message }}</div>
@@ -90,12 +90,12 @@
                             <i class="menu-icon tf-icons bx bx-file"></i>Choose
                           </a>
                         </span>
-                        <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+                        <input id="thumbnail" class="form-control" type="text" name="thumbnail" required>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Banner</label>
                       <div class="input-group">
@@ -104,22 +104,8 @@
                             <i class="menu-icon tf-icons bx bx-file"></i>Choose
                           </a>
                         </span>
-                        <input id="banner" class="form-control" type="text" name="banner">
+                        <input id="banner" class="form-control" type="text" name="banner" required>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner Title</label>
-                      <input type="text" class="form-control" name="banner_title">
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner Description</label>
-                      <textarea class="form-control" name="banner_description"></textarea>
                     </div>
                   </div>
                   
@@ -179,7 +165,7 @@
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Is Featured</label>
-                      <input type="checkbox" name="is_featured"  placeholder="">
+                      <input type="checkbox" name="is_featured"  placeholder="" value="1">
                     </div>
                   </div>
 

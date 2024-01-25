@@ -20,7 +20,6 @@
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Short Description</th>
-                        <th>Description</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,7 +30,6 @@
                         <td>{{$blog->title}}</td>
                         <td>{{$blog->slug}}</td>
                         <td>{{$blog->short_description}}</td>
-                        <td>{!!$blog->description!!}</td>
                         <td>
                         <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{route('blog.destroy',$blog->id)}}" method="POST" class="d-inline">

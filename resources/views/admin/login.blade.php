@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Admin Login Basic</title>
+    <title>Admin Login </title>
 
     <meta name="description" content="" />
 
@@ -63,11 +63,11 @@
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-text demo text-body fw-bolder">Webeesocial</span>
+                  <span class="app-brand-text demo text-body fw-bolder">DWAO</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to Webeesocial 👋</h4>
+              <h4 class="mb-2">Welcome to DWAO 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
@@ -107,12 +107,7 @@
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
-              </form>
-              <a href="{{ route('google.redirect') }}" title="Login With Google">
-                <button class="btn btn-danger d-grid w-100" >
-                  <i class='bx bxl-google-plus' ></i>
-                </button>
-              </a>
+              </form>=
             </div>
           </div>
           <!-- /Register -->
