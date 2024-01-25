@@ -5,8 +5,7 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        , made with ❤️ by
-        <a href="https://webeesoical.com" target="_blank" class="footer-link fw-bolder">Webeesocial</a>
+        , made with ❤️ 
       </div>
     </div>
   </footer>

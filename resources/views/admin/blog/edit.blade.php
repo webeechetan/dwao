@@ -15,7 +15,38 @@
                 @csrf
                 @method('PUT')
                 <div class="row">
-                  <div class="col-md-6">
+
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Category </label>
+                      <div class="input-group input-group-merge">
+                        <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
+                        <select name="category_id" id="" class="form-control" required>
+                            <option value="">Select Category</option>
+                            @foreach ($categories as $category)
+                              <option value="{{ $category->id }}" @if($category->id == $blogs->category_id) selected @endif>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Sub Category </label>
+                      <div class="input-group input-group-merge">
+                        <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
+                        <select name="sub_category_id" id="" class="form-control" required>
+                            <option value="">Select Sub Category</option>
+                            @foreach ($subCategories as $category)
+                                <option value="{{ $category->id }}" @if($category->id == $blogs->sub_category_id) selected @endif>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Publish Date</label>
                       <div class="input-group input-group-merge">
@@ -51,6 +82,7 @@
                     </div>
                   </div>
 
+
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Thumbnail</label>
@@ -61,6 +93,20 @@
                           </a>
                         </span>
                         <input id="thumbnail" class="form-control"  type="text" value="{{$blogs->thumbnail}}" name="thumbnail">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Banner</label>
+                      <div class="input-group">
+                        <span class="input-group-btn text-white">
+                          <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
+                            <i class="menu-icon tf-icons bx bx-file"></i>Choose
+                          </a>
+                        </span>
+                        <input id="banner" class="form-control" type="text" name="banner" required value="{{ $blogs->banner }}">
                       </div>
                     </div>
                   </div>
@@ -78,7 +124,7 @@
                   <div class="col-md-12">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <textarea name="short_description" value="{{$blogs->short_descriptin}}" class="form-control"></textarea>
+                      <textarea name="short_description" class="form-control">{{$blogs->short_description}}</textarea>
                     </div>
                   </div>
 
@@ -118,6 +164,53 @@
                     </div>
                   </div>
 
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Is Featured</label>
+                      <input type="checkbox" name="is_featured"  placeholder="" value="1" 
+                      @if($blogs->is_featured == 1) checked @endif>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Featured Thumbnail</label>
+                      <div class="input-group">
+                        <span class="input-group-btn text-white">
+                          <a id="ft" data-input="featured_thumbnail" data-preview="holder" class="btn btn-primary">
+                            <i class="menu-icon tf-icons bx bx-file"></i>Choose
+                          </a>
+                        </span>
+                        <input id="featured_thumbnail" class="form-control" type="text" name="featured_thumbnail" value="{{ $blogs->featured_thumbnail_image }}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="trending_insights row">
+                    @php
+                        $trending_insights_title = explode(',',$blogs->trending_insights_title);
+                        $trending_insights_url = explode(',',$blogs->trending_insights_url);
+                    @endphp
+                    @foreach($trending_insights_title as $title)
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
+                        <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title" 
+                        value="{{ $title }}"
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
+                        <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL"
+                        value="{{ $trending_insights_url[$loop->index] }}">
+                      </div>
+                    </div>
+                    @endforeach
+                  </div>
+                  <div><a class="btn btn-success add_more_insights">Add More</a></div>
+
               </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
@@ -135,6 +228,34 @@ $(document).ready(function (){
 
   $('#lfm').filemanager('file');
   $('#og_image').filemanager('file');
+  $('#ft').filemanager('file');
+  $('#banner-fm').filemanager('file');
+
+  $('.add_more_insights').click(function(){
+    let insights = `
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
+          <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
+          <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
+        </div>
+      </div>
+      <a class="btn btn-danger remove_insights">Remove</a>
+    </div>
+    `;
+    $('.trending_insights').append(insights);
+  });
+
+  $(document).on('click', '.remove_insights', function(){
+    $(this).parent().remove();
+  });
+
 
 });
 

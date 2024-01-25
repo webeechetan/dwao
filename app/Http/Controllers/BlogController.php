@@ -51,7 +51,7 @@ class BlogController extends Controller
         $blogs = new Blog();
 
        
-        $blogs->publish_date = $request->publish_date;
+        $blogs->publish_date = $request->publish_date ? $request->publish_date : date('Y-m-d');
         $blogs->slug = $request->slug;
         $blogs->title = $request->blog_title;
         $blogs->short_description = $request->short_description;
@@ -65,8 +65,6 @@ class BlogController extends Controller
         $blogs->category_id = $request->category_id;
         $blogs->sub_category_id = $request->sub_category_id;
         $blogs->banner = $request->banner;
-        $blogs->banner_title = $request->banner_title;
-        $blogs->banner_description = $request->banner_description;
         $blogs->trending_insights_title = implode(',',$request->trending_insights_title);
         $blogs->trending_insights_url = implode(',',$request->trending_insights_url);
         $blogs->featured_thumbnail_image = $request->featured_thumbnail;
@@ -100,8 +98,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        
-        return view('admin.blog.edit',['blogs' => $blog]);
+        $categories= Category::all();
+        $subCategories= SubCategory::all();   
+        return view('admin.blog.edit',['blogs' => $blog,'categories'=>$categories,'subCategories'=>$subCategories]);
     }
 
     /**
@@ -128,6 +127,15 @@ class BlogController extends Controller
         $blog->og_title =  $request->og_title;
         $blog->og_image = $request->og_image;
         $blog->thumbnail = $request->thumbnail;
+        $blog->type = 1;
+        $blog->category_id = $request->category_id;
+        $blog->sub_category_id = $request->sub_category_id;
+        $blog->banner = $request->banner;
+        $blog->trending_insights_title = implode(',',$request->trending_insights_title);
+        $blog->trending_insights_url = implode(',',$request->trending_insights_url);
+        $blog->featured_thumbnail_image = $request->featured_thumbnail;
+        $blog->is_featured = $request->is_featured ? 1 : 0;
+
         
         if($blog->save()){
             $this->alert('success','Blog Updated successfully','success');
