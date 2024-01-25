@@ -27,9 +27,7 @@
                 <div class="case_studies-sidebar-wrap">
                     <h2>Related capabilities</h2>
                     <ul class="case_studies-sidebar-options">
-                        @foreach($relatedBlogs as $blog)
-                            <li><a href="#"><span>Digital Analytics</span><span class="case_studies-sidebar-options-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m19 12-7-6v5H6v2h6v5z"></path></svg></span></a></li>
-                        @endforeach
+                        
                     </ul>
                     <hr>
                     <h2>Trending insights</h2>

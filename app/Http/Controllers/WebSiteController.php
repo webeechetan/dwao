@@ -31,7 +31,7 @@ class WebSiteController extends Controller
     }
 
     public function viewBlog($title){
-        $blog = Blog::where('title',$title)->first();
+        $blog = Blog::where('slug',$title)->first();
         return view('frontend.blog',['meta'=>$this->meta,'blog'=>$blog]);
     }
 
