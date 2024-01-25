@@ -46,6 +46,18 @@
     <script src="https://dwao.in/js/plugins.js"></script>
     <script src="https://dwao.in/js/main.js" type="text/javascript"></script>
 
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $(this).toggleClass("close");
+            });
+
+            $(".case_studies-filters-wrap > li.has-dropdown").click(function(){
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+
 </body>
 
 </html>

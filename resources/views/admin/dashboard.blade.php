@@ -8,7 +8,7 @@
            <blockquote class="blockquote ">
              <p class="quote_content"></p>
            </blockquote>
-           <figcaption class="blockquote-footer mb-0 text-muted quote_author">
+            <figcaption class="blockquote-footer mb-0 text-muted quote_author">
            </figcaption>
          </figure>
          <div class="demo-inline-spacing quote_tags"></div>

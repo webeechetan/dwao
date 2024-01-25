@@ -16,7 +16,6 @@
 .app-brand-text.demo {
   font-size: 1.75rem;
   letter-spacing: -0.5px;
-  text-transform: lowercase;
 }
 
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
@@ -104,4 +103,14 @@
 .layout-demo-info {
   text-align: center;
   margin-top: 1rem;
+}
+
+div.authentication-wrapper.authentication-basic .authentication-inner .card .app-brand {
+  margin-bottom: 15px;
+}
+
+.trending_insights {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 4px;
 }

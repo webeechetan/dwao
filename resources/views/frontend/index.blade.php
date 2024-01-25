@@ -10,6 +10,15 @@
             <div class="col-12">
                 <div class="case_studies-filters">
                     <h4 class="case_studies-filters-title"><span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z"></path></svg></span> Filter By:</h4>
+                    <div class="offcanvas">
+                        <button type="button" class="offcanvas-menu-btn menu-status-open">
+                            <span class="btn-icon-wrap">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            </span>
+                        </button>
+                    </div>
                     <ul class="case_studies-filters-wrap">
                         <li class="has-dropdown">
                             <a href="#">Capabilities</a>
@@ -27,10 +36,10 @@
         <div class="case_studies-feature_list">
             @foreach ($featuredBlogs as $blog)
                 <div class="post_card post_card-featured">
-                    <div class="post_card-featured-badge">Featured</div>
                     <div class="post_card-img">
                         <a href="{{ route('blog.view',$blog->slug) }}"><img src="{{ $blog->featured_thumbnail_image }}" class="w-100" alt=""></a>
                     </div>
+                    <div class="post_card-featured-badge">Featured</div>
                     <div class="post_card-body">
                         <div class="post_card-cat">
                             <div class="post_card-cat-title"><span>{{$blog->category->name}}</span> | <span>{{$blog->subCategory->name}}</span></div>

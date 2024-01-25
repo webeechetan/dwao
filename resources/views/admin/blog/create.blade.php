@@ -55,9 +55,9 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-company">Title <span class="text-danger"><b>*</b></span> </label>
+                        <label class="form-label" for="basic-icon-default-company">Title<span class="text-danger"><b>*</b></span> </label>
                         <div class="input-group input-group-merge">
                           <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
                           <input type="text" required id="input_title" name="blog_title" class="form-control" placeholder="Title">
@@ -68,7 +68,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-company">Slug</label>
                       <div class="input-group input-group-merge">
@@ -81,9 +81,16 @@
                     </div>
                   </div>
 
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Short Description</label>
+                      <input type="text" required name="short_description" class="form-control" placeholder="Short Description">
+                    </div>
+                  </div>
+
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Thumbnail</label>
+                      <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (600*500)</label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -111,7 +118,7 @@
                   
                   <div class="col-md-12">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Description</label>
+                      <label class="form-label" for="basic-icon-default-message">Page Content</label>
                       <textarea id="editor" name="description" class="form-control" placeholder="Description"></textarea>
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
@@ -119,11 +126,8 @@
                     </div>
                   </div>
 
-                  <div class="col-md-12">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <textarea name="short_description" class="form-control"></textarea>
-                    </div>
+                  <div class="col-12">
+                    <hr>
                   </div>
 
                   <div class="col-md-6">
@@ -161,17 +165,18 @@
                           <div id="og_image_holder" class="img-fluid" width="250px"></div>
                     </div>
                   </div>
-
-                  <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Is Featured</label>
-                      <input type="checkbox" name="is_featured"  placeholder="" value="1">
+                  <div class="col-12">
+                    <hr>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <input type="checkbox" name="is_featured"  placeholder="" value="1" style="width: 20px; height: 20px;">
+                      <h5 class="mb-0" for="basic-icon-default-message">Is Featured</h5>
                     </div>
                   </div>
-
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Featured Thumbnail</label>
+                      <label class="form-label" for="basic-icon-default-message">Featured Thumbnail<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="ft" data-input="featured_thumbnail" data-preview="holder" class="btn btn-primary">
@@ -182,23 +187,34 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-12">
+                    <hr>
+                  </div>
 
-                  <div class="trending_insights row">
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
-                        <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
-                        <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
+                  <div class="col-12">
+                    <h4>Trending Insights</h4>
+                  </div>
+                  <div class="col-12">
+                    <div class="trending_insights">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label" for="basic-icon-default-message">Title</label>
+                            <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label class="form-label" for="basic-icon-default-message">URL</label>
+                            <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   </div>
-                  <div><a class="btn btn-success add_more_insights">Add More</a></div>
+                  <div class="col-12 mt-4 text-center"><a class="btn btn-success add_more_insights">Add More</a></div>
 
               </div>
                 <button type="submit" class="btn btn-primary mt-4">Save</button>
@@ -222,20 +238,21 @@ $(document).ready(function (){
 
   $('.add_more_insights').click(function(){
     let insights = `
-    <div class="col-md-12">
+    <div class="row">
+      <div><hr></div>
       <div class="col-md-6">
         <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
+          <label class="form-label" for="basic-icon-default-message">Title</label>
           <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
         </div>
       </div>
       <div class="col-md-6">
         <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
+          <label class="form-label" for="basic-icon-default-message">URL</label>
           <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
         </div>
       </div>
-      <a class="btn btn-danger remove_insights">Remove</a>
+      <div class="d-flex align-items-end"><a class="btn btn-danger remove_insights mb-3">Remove</a></div>
     </div>
     `;
     $('.trending_insights').append(insights);

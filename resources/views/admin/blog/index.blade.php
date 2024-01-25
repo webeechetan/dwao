@@ -11,7 +11,7 @@
         <h5 class="mb-0">Blog List</h5>
         <a href="{{route('blog.create')}}" class="btn btn-primary btn-sm">Add Blog</a>
     </div>
-    <div class="table-responsive text-nowrap">
+    <div class="table-responsive">
         <div class="container">
             <table class="table table-hover" id="datatable-blog">
                 <thead>
