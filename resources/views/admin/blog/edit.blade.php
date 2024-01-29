@@ -18,7 +18,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Category </label>
+                      <label class="form-label" for="basic-icon-default-fullname">Category<span class="text-danger"><b>*</b></span> </label>
                       <div class="input-group input-group-merge">
                         <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
                         <select name="category_id" id="" class="form-control" required>
@@ -33,7 +33,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Sub Category </label>
+                      <label class="form-label" for="basic-icon-default-fullname">Sub Category<span class="text-danger"><b>*</b></span> </label>
                       <div class="input-group input-group-merge">
                         <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
                         <select name="sub_category_id" id="" class="form-control" required>
@@ -56,7 +56,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                         <label class="form-label" for="basic-icon-default-company">Title <span class="text-danger"><b>*</b></span> </label>
                         <div class="input-group input-group-merge">
@@ -69,9 +69,9 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-company">Slug</label>
+                      <label class="form-label" for="basic-icon-default-company">Slug<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group input-group-merge">
                       <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
                       <input type="text" id="slug" name="slug" value="{{$blogs->slug}}" class="form-control" placeholder="Slug">
@@ -82,10 +82,17 @@
                     </div>
                   </div>
 
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Short Description</label>
+                      <input type="text" name="short_description" class="form-control" value="{{$blogs->short_description}}">
+                    </div>
+                  </div>
+
 
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Thumbnail</label>
+                      <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -99,7 +106,7 @@
 
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner</label>
+                      <label class="form-label" for="basic-icon-default-message">Banner<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
@@ -113,7 +120,7 @@
                   
                   <div class="col-md-12">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Description</label>
+                      <label class="form-label" for="basic-icon-default-message">Page Content<span class="text-danger"><b>*</b></span></label>
                       <textarea id="editor" name="description"  class="form-control" placeholder="Description">{{strip_tags($blogs->description)}}</textarea>
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
@@ -121,12 +128,6 @@
                     </div>
                   </div>
 
-                  <div class="col-md-12">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <textarea name="short_description" class="form-control">{{$blogs->short_description}}</textarea>
-                    </div>
-                  </div>
 
                   <div class="col-md-6">
                     <div class="mb-3">
@@ -164,27 +165,32 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Is Featured</label>
-                      <input type="checkbox" name="is_featured"  placeholder="" value="1" 
-                      @if($blogs->is_featured == 1) checked @endif>
+                  <div class="col-12">
+                    <hr>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <input type="checkbox" class="is_featured" name="is_featured"  placeholder="" value="1" style="width: 20px; height: 20px;" @if($blogs->is_featured == 1) checked @endif>
+                      <h5 class="mb-0" for="basic-icon-default-message">Is Featured</h5>
                     </div>
                   </div>
-
                   <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Featured Thumbnail</label>
+                    <div class="mb-3" @if($blogs->is_featured == 0) style="display: none" @endif >
+                      <label class="form-label" for="basic-icon-default-message">Featured Thumbnail<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="ft" data-input="featured_thumbnail" data-preview="holder" class="btn btn-primary">
                             <i class="menu-icon tf-icons bx bx-file"></i>Choose
                           </a>
                         </span>
-                        <input id="featured_thumbnail" class="form-control" type="text" name="featured_thumbnail" value="{{ $blogs->featured_thumbnail_image }}">
+                        <input id="featured_thumbnail" class="form-control" type="text" name="featured_thumbnail">
                       </div>
                     </div>
                   </div>
+                  <div class="col-12">
+                    <hr>
+                  </div>
+
 
                   <div class="trending_insights row">
                     @php
@@ -212,7 +218,7 @@
                   <div><a class="btn btn-success add_more_insights">Add More</a></div>
 
               </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary mt-4">Update</button>
             </form>
         </div>
       </div>
@@ -231,29 +237,40 @@ $(document).ready(function (){
   $('#ft').filemanager('file');
   $('#banner-fm').filemanager('file');
 
+  $(".is_featured").change(function(){
+    if(this.checked){
+      $('#featured_thumbnail').parent().parent().show();
+      $('#featured_thumbnail').attr('required',true);
+    }else{
+      $('#featured_thumbnail').parent().parent().hide();
+      $('#featured_thumbnail').attr('required',false);
+    }
+  });
+
   $('.add_more_insights').click(function(){
     let insights = `
-    <div class="col-md-12">
+    <div class="row">
+      <div><hr></div>
       <div class="col-md-6">
         <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
+          <label class="form-label" for="basic-icon-default-message">Title</label>
           <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title">
         </div>
       </div>
       <div class="col-md-6">
         <div class="mb-3">
-          <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
+          <label class="form-label" for="basic-icon-default-message">URL</label>
           <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
         </div>
       </div>
-      <a class="btn btn-danger remove_insights">Remove</a>
+      <div class="d-flex align-items-end"><a class="btn btn-danger remove_insights mb-3">Remove</a></div>
     </div>
     `;
     $('.trending_insights').append(insights);
   });
 
   $(document).on('click', '.remove_insights', function(){
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   });
 
 

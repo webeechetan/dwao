@@ -11,57 +11,45 @@
           </small>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{route('blog.store')}}" >
+            <form method="POST" action="{{route('blog.store')}}"class="post-form" >
                 @csrf
                 <div class="row">
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Category </label>
-                      <div class="input-group input-group-merge">
-                        <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
+                      <label class="form-label" for="basic-icon-default-fullname">Category<span class="text-danger"><b>*</b></span> </label>
                         <select name="category_id" id="" class="form-control" required>
                             <option value="">Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
-                      </div>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Sub Category </label>
-                      <div class="input-group input-group-merge">
-                        <span id="" class="input-group-text"><i class="bx bxs-watch"></i></span>
-                        <select name="sub_category_id" id="" class="form-control" required>
-                            <option value="">Select Sub Category</option>
-                            @foreach ($subCategories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                      </div>
+                      <label class="form-label" for="basic-icon-default-fullname">Sub Category<span class="text-danger"><b>*</b></span> </label>
+                      <select name="sub_category_id" id="" class="form-control" required>
+                          <option value="">Select Sub Category</option>
+                          @foreach ($subCategories as $category)
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                          @endforeach
+                      </select>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Publish Date</label>
-                      <div class="input-group input-group-merge">
-                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-watch"></i></span>
-                        <input type="date" class="form-control" id="publish_date" name="publish_date">
-                      </div>
+                      <input type="date" class="form-control" id="publish_date" name="publish_date">
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-company">Title<span class="text-danger"><b>*</b></span> </label>
-                        <div class="input-group input-group-merge">
-                          <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                        <label class="form-label" for="blog_title">Title<span class="text-danger"><b>*</b></span> </label>
                           <input type="text" required id="input_title" name="blog_title" class="form-control" placeholder="Title">
-                        </div>
                           @error('blog_title')    
                               <div class="text-danger mt-2">{{ $message }}</div>
                           @enderror
@@ -70,11 +58,8 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-company">Slug</label>
-                      <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+                      <label class="form-label" for="basic-icon-default-company">Slug<span class="text-danger"><b>*</b></span></label>
                       <input type="text" id="slug" required name="slug" class="form-control" placeholder="Slug">
-                      </div>
                       @error('slug')    
                           <div class="text-danger mt-2">{{ $message }}</div>
                       @enderror
@@ -84,7 +69,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <input type="text" required name="short_description" class="form-control" placeholder="Short Description">
+                      <input type="text" maxlength="5" name="short_description" class="form-control" placeholder="Short Description">
                     </div>
                   </div>
 
@@ -104,7 +89,7 @@
 
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner</label>
+                      <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
@@ -118,7 +103,7 @@
                   
                   <div class="col-md-12">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Page Content</label>
+                      <label class="form-label" for="basic-icon-default-message">Page Content <span class="text-danger"><b>*</b></span></label>
                       <textarea id="editor" name="description" class="form-control" placeholder="Description"></textarea>
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
@@ -170,12 +155,12 @@
                   </div>
                   <div class="col-12">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                      <input type="checkbox" name="is_featured"  placeholder="" value="1" style="width: 20px; height: 20px;">
+                      <input type="checkbox" class="is_featured" name="is_featured"  placeholder="" value="1" style="width: 20px; height: 20px;">
                       <h5 class="mb-0" for="basic-icon-default-message">Is Featured</h5>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="mb-3">
+                    <div class="mb-3" style="display: none">
                       <label class="form-label" for="basic-icon-default-message">Featured Thumbnail<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
@@ -227,14 +212,29 @@
 
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 <script>
 
 $(document).ready(function (){
+
+  $(".post-form").validate({
+    errorElement: "div",
+  });
 
   $('#lfm').filemanager('file');
   $('#og_image').filemanager('file');
   $('#ft').filemanager('file');
   $('#banner-fm').filemanager('file');
+
+  $(".is_featured").change(function(){
+    if(this.checked){
+      $('#featured_thumbnail').parent().parent().show();
+      $('#featured_thumbnail').attr('required',true);
+    }else{
+      $('#featured_thumbnail').parent().parent().hide();
+      $('#featured_thumbnail').attr('required',false);
+    }
+  });
 
   $('.add_more_insights').click(function(){
     let insights = `
@@ -259,7 +259,7 @@ $(document).ready(function (){
   });
 
   $(document).on('click', '.remove_insights', function(){
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   });
 
 
