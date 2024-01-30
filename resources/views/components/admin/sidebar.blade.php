@@ -72,12 +72,12 @@ It is just to check the uri segment value so that we can activate the currenct s
         </ul>
       </li>
 
-      <!-- Metas -->
-      {{-- <li class="menu-item {{Request::segment(2)== 'meta' ? 'menu-item active' : ''}}">
-        <a href="{{route('meta.index')}}" class="menu-link ">
-          <i class="menu-icon tf-icons bx bx-trending-up"></i>
-          <div data-i18n="Layouts">Meta</div>
+      <!-- Users -->
+      <li class="menu-item {{Request::segment(2)== 'user' ? 'menu-item active' : ''}}">
+        <a href="{{route('user.index')}}" class="menu-link ">
+          <i class="menu-icon tf-icons bx bx-user"></i>
+          <div data-i18n="Layouts">Authors</div>
         </a>
-      </li> --}}
+      </li>
     </ul>
   </aside>

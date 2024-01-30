@@ -90,7 +90,7 @@
                   </div>
 
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
@@ -104,7 +104,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Banner<span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
@@ -115,6 +115,18 @@
                         </span>
                         <input id="banner" class="form-control" type="text" name="banner" required value="{{ $blogs->banner }}">
                       </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
+                      <select name="user_id" id="" class="form-control" required>
+                          <option value="">Select Author</option>
+                          @foreach ($users as $user)
+                              <option value="{{ $user->id }}" @if($user->id == $blogs->user_id) selected @endif>{{ $user->name }}</option>
+                          @endforeach
+                      </select>
                     </div>
                   </div>
                   

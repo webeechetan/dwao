@@ -13,6 +13,7 @@ use App\Http\Controllers\WebSiteController;
 use App\Http\Controllers\SubCategoryController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\UserController;
 /*--------------------------------- Admin Routes ---------------------------------*/
 
 /*--------------------------------- Auth Routes ---------------------------------*/
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
         '/category' => CategoryController::class,
         '/blog' => BlogController::class,
         '/subCategory' => SubCategoryController::class,
+        '/user' => UserController::class,
     ]);
 
     /*--------------------------------- File Manager ---------------------------------*/

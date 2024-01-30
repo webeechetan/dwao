@@ -21,6 +21,23 @@
             <div>
                 <div class="case_studies-inner-body-content">
                     {!! $blog->description !!}
+
+                    <!-- Author Section -->
+                    @if($blog->user)
+                    <div class="case_studies-inner-body-author">
+                        <div class="case_studies-inner-body-author-img"><img src="{{ $blog->user->image }}" alt=""></div>
+                        <div class="case_studies-inner-body-author-content">
+                            <div class="case_studies-inner-body-author-name">{{ $blog->user->name }}</div>
+                            <div class="case_studies-inner-body-author-desc">{{ $blog->user->bio }}</div>
+                        </div>
+                        <ul>
+                            <li><a href="{{ $blog->user->twitter }}"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{ $blog->user->linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $blog->user->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                        </ul>
+                    </div>
+                    @endif
+
                 </div>
             </div>
             <div class="case_studies-sidebar">
