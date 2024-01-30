@@ -42,7 +42,7 @@
     
     <!-- Footer -->
    
-    <script src="https://dwao.in/js/vendor/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://dwao.in/js/plugins.js"></script>
     <script src="https://dwao.in/js/main.js" type="text/javascript"></script>
 
@@ -57,6 +57,8 @@
             });
         });
     </script>
+
+    @stack('scripts')
 
 </body>
 

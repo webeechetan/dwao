@@ -187,35 +187,43 @@
                       </div>
                     </div>
                   </div>
+                  
                   <div class="col-12">
                     <hr>
                   </div>
 
-
-                  <div class="trending_insights row">
-                    @php
-                        $trending_insights_title = explode(',',$blogs->trending_insights_title);
-                        $trending_insights_url = explode(',',$blogs->trending_insights_url);
-                    @endphp
-                    @foreach($trending_insights_title as $title)
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-message">Trending Insights Title</label>
-                        <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title" 
-                        value="{{ $title }}"
-                        >
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-message">Trending Insights URL</label>
-                        <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL"
-                        value="{{ $trending_insights_url[$loop->index] }}">
-                      </div>
-                    </div>
-                    @endforeach
+                  <div class="col-12">
+                    <h4>Trending Insights</h4>
                   </div>
-                  <div><a class="btn btn-success add_more_insights">Add More</a></div>
+
+                  <div class="col-12">
+                    <div class="trending_insights">
+                      <div class="row">
+                        @php
+                            $trending_insights_title = explode(',',$blogs->trending_insights_title);
+                            $trending_insights_url = explode(',',$blogs->trending_insights_url);
+                        @endphp
+                        @foreach($trending_insights_title as $title)
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-icon-default-message">Title</label>
+                              <input type="text" name="trending_insights_title[]" class="form-control" placeholder="Trending Insights Title" 
+                              value="{{ $title }}"
+                              >
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-icon-default-message">URL</label>
+                              <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL"
+                              value="{{ $trending_insights_url[$loop->index] }}">
+                            </div>
+                          </div>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-4 text-center"><a class="btn btn-success add_more_insights">Add More</a></div>
 
               </div>
                 <button type="submit" class="btn btn-primary mt-4">Update</button>
