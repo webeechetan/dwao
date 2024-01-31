@@ -40,7 +40,7 @@
                         <i class="menu-icon tf-icons bx bx-file"></i>Choose
                       </a>
                     </span>
-                    <input id="image" class="form-control" type="text" name="image" required>
+                    <input id="image" class="form-control" type="text" name="image">
                   </div>
                 </div>
               </div>
@@ -71,6 +71,20 @@
                 <div class="mb-3">
                     <label class="form-label" for="basic-icon-default-fullname">LinkedIn URL </label>
                     <input type="text" class="form-control dt-full-name" placeholder="LinkedIn" name="linkedin" />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-icon-default-fullname">Instagram URL </label>
+                    <input type="text" class="form-control dt-full-name" placeholder="Instagram" name="instagram" />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-icon-default-fullname">Youtube URL </label>
+                    <input type="text" class="form-control dt-full-name" placeholder="Youtube" name="youtube" />
                 </div>
               </div>
             </div>

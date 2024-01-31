@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
     Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+
+    Route::get('/get-subcategories/{id?}', [BlogController::class, 'getSubCategories'])->name('get.subcategories');
  
     /*----------------------------------- Meta ---------------------------------*/
 

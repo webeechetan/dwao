@@ -13,7 +13,7 @@
                 <label class="form-label" for="basic-icon-default-fullname">Category</label>
                 <div class="input-group input-group-merge">
                     <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                    <select name="category_id" id="" class="form-control"> 
+                    <select name="category_id" id="" class="form-control categories"> 
                         <option value="">Select Category</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>

@@ -18,6 +18,7 @@
 
     <!-- Js -->
     <script src="https://assets.adobedtm.com/21b53c73144b/774144cf1409/launch-ENc6f7fd4a08f6487bb2c0a4472d7d40a7.min.js" async type="text/javascript"></script>
+    @stack('styles')
 </head>
 
 <body class="has-no-banner">

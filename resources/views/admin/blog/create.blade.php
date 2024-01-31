@@ -18,7 +18,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Category<span class="text-danger"><b>*</b></span> </label>
-                        <select name="category_id" id="" class="form-control" required>
+                        <select name="category_id" id="" class="form-control categories" required>
                             <option value="">Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -30,7 +30,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Sub Category<span class="text-danger"><b>*</b></span> </label>
-                      <select name="sub_category_id" id="" class="form-control" required>
+                      <select name="sub_category_id" id="" class="form-control sub_categories" required>
                           <option value="">Select Sub Category</option>
                           @foreach ($subCategories as $category)
                               <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -122,6 +122,13 @@
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
                       @enderror
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-message">Minutes Read</label>
+                      <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
                     </div>
                   </div>
 
@@ -230,6 +237,21 @@
 <script>
 
 $(document).ready(function (){
+
+  $(".categories").change(function(){
+    let catId = $(this).val();
+    $.ajax({
+      url: "{{ route('get.subcategories') }}/"+catId,
+      type: "GET",
+      success: function(response){
+        let html = '';
+        response.forEach(element => {
+          html += `<option value="${element.id}">${element.name}</option>`;
+        });
+        $('.sub_categories').html(html);
+      }
+    });
+  });
 
   $(".post-form").validate({
     errorElement: "div",
