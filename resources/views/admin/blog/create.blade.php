@@ -69,7 +69,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <input type="text" maxlength="5" name="short_description" class="form-control" placeholder="Short Description">
+                      <input type="text" maxlength="250" name="short_description" class="form-control" placeholder="Short Description">
                     </div>
                   </div>
 
