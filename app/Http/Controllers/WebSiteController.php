@@ -6,6 +6,8 @@ use App\Models\Meta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\SubCategory;
 
 class WebSiteController extends Controller
 {
@@ -22,12 +24,20 @@ class WebSiteController extends Controller
         }
     }
 
-    public function viewIndex(){
-        $featuredBlogs = Blog::where('is_featured',1)->orderBy('id','desc')->take(2)->get();
-        $recentBlogs = Blog::orderBy('id','desc')->take(4)->get();
-        $relatedBlogs = Blog::where('category_id',$featuredBlogs[0]->category_id)->where('id','!=',$featuredBlogs[0]->id)->orderBy('id','desc')->take(4)->get();
+    public function viewIndex(Request $request){
 
-        return view('frontend.index',['meta'=>$this->meta,'featuredBlogs'=>$featuredBlogs,'recentBlogs'=>$recentBlogs,'relatedBlogs'=>$relatedBlogs]);
+        $featuredBlogs = Blog::where('is_featured',1)->orderBy('id','desc')->take(2)->get();
+        if($request->catId){
+            $recentBlogs = Blog::where('category_id',$request->catId)->orderBy('id','desc')->get();
+        }elseif($request->subCatId){
+            $recentBlogs = Blog::where('sub_category_id',$request->subCatId)->orderBy('id','desc')->get();
+        }else{
+            $recentBlogs = Blog::orderBy('id','desc')->get();
+        }
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+
+        return view('frontend.index',['meta'=>$this->meta,'featuredBlogs'=>$featuredBlogs,'recentBlogs'=>$recentBlogs,'categories'=>$categories,'subCategories'=>$subCategories]);
     }
 
     public function viewBlog($slug){

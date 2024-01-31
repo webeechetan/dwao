@@ -23,12 +23,19 @@
                         <li class="has-dropdown">
                             <a href="#">Capabilities</a>
                             <ul>
-                                <li><a href="#">Digital Analysis</a></li>
-                                <li><a href="#">SEO Terms</a></li>
-                                <li><a href="#">Website Development</a></li>
+                                @foreach($categories as $category)
+                                    <li class="category" data-catId="{{ $category->id }}"><a >{{ $category->name }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li><a href="#">Case Studies</a></li>
+                        <li class="has-dropdown">
+                            <a href="#">Case Studies</a>
+                            <ul>
+                                @foreach($subCategories as $subCategory)
+                                    <li class="sub_category" data-catId="{{ $category->id }}"><a >{{ $subCategory->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -74,3 +81,19 @@
 </section>
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $('.category').click(function(){
+                var catId = $(this).data('catid');
+                window.location.href = "{{ route('index') }}?catId="+catId;
+            });
+
+            $('.sub_category').click(function(){
+                var catId = $(this).data('catid');
+                window.location.href = "{{ route('index') }}?subCatId="+catId;
+            });
+        });
+    </script>
+@endpush

@@ -13,25 +13,13 @@ use App\Http\Controllers\WebSiteController;
 use App\Http\Controllers\SubCategoryController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
-/*--------------------------------- Website Routes ---------------------------------*/
-
- 
-Route::get('/auth/google/redirect', [AuthController::class,'googleRedirect'])->name('google.redirect');
- 
-Route::get('/auth/google/callback',[AuthController::class,'googleCallback'])->name('google.callback');
-
-
-Route::get('/',[WebSiteController::class,'viewIndex']);
-Route::get('/about-us',[WebSiteController::class,'viewAbout']);
-Route::get('/blog/{title}',[WebSiteController::class,'viewBlog'])->name('blog.view');
+use App\Http\Controllers\UserController;
+/*--------------------------------- Admin Routes ---------------------------------*/
 
 /*--------------------------------- Auth Routes ---------------------------------*/
 
 Route::get('/admin/login', [AuthController::class, 'index'])->name('login.view')->middleware('guest');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-
-/*--------------------------------- Admin Routes ---------------------------------*/
 
 Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
 
@@ -43,16 +31,16 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
      ______________
     |  Resources  |
     ______________
-        1: Our Clients
+        1: Sub Category
         2: Category
         3: blogs
-        4: Our Works
     --------------------------------*/
 
     Route::resources([
         '/category' => CategoryController::class,
         '/blog' => BlogController::class,
         '/subCategory' => SubCategoryController::class,
+        '/user' => UserController::class,
     ]);
 
     /*--------------------------------- File Manager ---------------------------------*/
@@ -68,5 +56,15 @@ Route::group(['middleware' => 'auth','prefix'=>'/admin'], function () {
     Route::put('meta/{meta}', [MetaController::class, 'update'])->name('meta.update');
 
 });
+
+/*--------------------------------- Website Routes ---------------------------------*/
+
+
+Route::get('/blog/{title}',[WebSiteController::class,'viewBlog'])->name('blog.view');
+Route::get('/{catId?}/{subCatId?}',[WebSiteController::class,'viewIndex'])->name('index');
+Route::get('/about-us',[WebSiteController::class,'viewAbout']);
+
+
+
 
 

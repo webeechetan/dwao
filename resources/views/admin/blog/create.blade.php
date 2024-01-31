@@ -69,11 +69,11 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Short Description</label>
-                      <input type="text" maxlength="5" name="short_description" class="form-control" placeholder="Short Description">
+                      <input type="text" maxlength="250" name="short_description" class="form-control" placeholder="Short Description">
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (600*500)</label>
                       <div class="input-group">
@@ -87,7 +87,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span></label>
                       <div class="input-group">
@@ -100,6 +100,20 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
+                      <select name="user_id" id="" class="form-control" required>
+                          <option value="">Select Author</option>
+                          @foreach ($users as $user)
+                              <option value="{{ $user->id }}">{{ $user->name }}</option>
+                          @endforeach
+                      </select>
+                    </div>
+                  </div>
+
+
                   
                   <div class="col-md-12">
                     <div class="mb-3">

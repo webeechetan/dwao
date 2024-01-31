@@ -8,7 +8,7 @@
 @section('content')
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="mb-0">Category List</h5>
+        <h5 class="mb-0"> Sub Category List</h5>
         <a href="{{ route('subCategory.create')}}" class="btn btn-primary btn-sm">Add Category</a>
     </div>
     <div class="table-responsive text-nowrap">

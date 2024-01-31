@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('sub_category_id')->constrained('sub_categories')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->mediumText('title');
             $table->longText('description');
             $table->mediumText('short_description')->nullable();

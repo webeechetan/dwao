@@ -6,6 +6,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
 use App\Models\Category;
+use App\Models\User;
 
 class BlogController extends Controller
 {
@@ -30,7 +31,8 @@ class BlogController extends Controller
     {
         $categories= Category::all();
         $subCategories= SubCategory::all();
-        return view ('admin.blog.create',compact('categories','subCategories'));
+        $users = User::all();
+        return view ('admin.blog.create',compact('categories','subCategories','users'));
     }
 
     /**
@@ -69,6 +71,7 @@ class BlogController extends Controller
         $blogs->trending_insights_url = implode(',',$request->trending_insights_url);
         $blogs->featured_thumbnail_image = $request->featured_thumbnail;
         $blogs->is_featured = $request->is_featured ? 1 : 0;
+        $blogs->user_id = $request->user_id;
 
 
         if($blogs->save()){
@@ -100,7 +103,8 @@ class BlogController extends Controller
     {
         $categories= Category::all();
         $subCategories= SubCategory::all();   
-        return view('admin.blog.edit',['blogs' => $blog,'categories'=>$categories,'subCategories'=>$subCategories]);
+        $users = User::all();
+        return view('admin.blog.edit',['blogs' => $blog,'users'=>$users,'categories'=>$categories,'subCategories'=>$subCategories]);
     }
 
     /**
@@ -135,7 +139,7 @@ class BlogController extends Controller
         $blog->trending_insights_url = implode(',',$request->trending_insights_url);
         $blog->featured_thumbnail_image = $request->featured_thumbnail;
         $blog->is_featured = $request->is_featured ? 1 : 0;
-
+        $blog->user_id = $request->user_id;
         
         if($blog->save()){
             $this->alert('success','Blog Updated successfully','success');
