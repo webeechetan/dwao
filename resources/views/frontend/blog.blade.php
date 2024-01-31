@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
-@section('meta_title',$meta->meta_title)
-@section('meta_description',$meta->meta_description)
+@section('meta_title',$blog->meta_title)
+@section('meta_description',$blog->meta_description)
 
 @section('styles')
 @endsection

@@ -42,7 +42,6 @@ class WebSiteController extends Controller
 
     public function viewBlog($slug){
         $blog = Blog::where('slug',$slug)->first();
-        // dd($blog);
         $relatedBlogs = Blog::where('category_id',$blog->category_id)->where('id','!=',$blog->id)->orderBy('id','desc')->take(4)->get();
         return view('frontend.blog',['meta'=>$this->meta,'blog'=>$blog,'relatedBlogs'=>$relatedBlogs]);
     }
