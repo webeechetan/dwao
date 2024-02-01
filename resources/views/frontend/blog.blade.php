@@ -45,12 +45,14 @@
             </div>
             <div class="case_studies-sidebar">
                 <div class="case_studies-sidebar-wrap">
+                    @if($relatedBlogs->count() > 0)
                     <h2>Related capabilities</h2>
                     <ul class="case_studies-sidebar-options">
                         @foreach($relatedBlogs as $relatedBlog)
                             <li><a href="{{ route('blog.view',$relatedBlog->slug) }}"><span>{{ $relatedBlog->title}}</span><span class="case_studies-sidebar-options-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m19 12-7-6v5H6v2h6v5z"></path></svg></span></a></li>
                         @endforeach
                     </ul>
+                    @endif
                     @php
                         $trending_insights_title = explode(',',$blog->trending_insights_title);
                         $trending_insights_url = explode(',',$blog->trending_insights_url); 

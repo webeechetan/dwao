@@ -71,11 +71,13 @@ class BlogController extends Controller
         $blogs->trending_insights_url = implode(',',$request->trending_insights_url);
         $blogs->featured_thumbnail_image = $request->featured_thumbnail;
         $blogs->is_featured = $request->is_featured ? 1 : 0;
-        $blogs->user_id = $request->user_id;
         $blogs->minutes = $request->minutes;
 
-
         if($blogs->save()){
+            if($request->has('user_ids')){
+                $blogs->users()->sync($request->user_ids);
+            }
+
             $this->alert('success','Blog Added successfully','success');
             return redirect()->route('blog.index');
         }
@@ -142,6 +144,10 @@ class BlogController extends Controller
         $blog->is_featured = $request->is_featured ? 1 : 0;
         $blog->user_id = $request->user_id;
         $blog->minutes = $request->minutes;
+
+        if($request->has('user_ids')){
+            $blog->users()->sync($request->user_ids);
+        }
         
         if($blog->save()){
             $this->alert('success','Blog Updated successfully','success');

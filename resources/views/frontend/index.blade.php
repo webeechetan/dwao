@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('meta_title',$meta->meta_title)
+@section('meta_title','DWAO - Blogs')
 @section('meta_description',$meta->meta_description)
 
 @section('content')

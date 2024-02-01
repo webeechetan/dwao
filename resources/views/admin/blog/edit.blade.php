@@ -121,10 +121,14 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_id" id="" class="form-control" required>
+                      <select name="user_ids[]" id="" class="form-control" required multiple>
                           <option value="">Select Author</option>
                           @foreach ($users as $user)
-                              <option value="{{ $user->id }}" @if($user->id == $blogs->user_id) selected @endif>{{ $user->name }}</option>
+                              <option value="{{ $user->id }}"
+                                @foreach ($blogs->users as $blog_user)
+                                  @if($blog_user->id == $user->id) selected @endif
+                                @endforeach
+                                >{{ $user->name }}</option>
                           @endforeach
                       </select>
                     </div>
@@ -202,7 +206,7 @@
                             <i class="menu-icon tf-icons bx bx-file"></i>Choose
                           </a>
                         </span>
-                        <input id="featured_thumbnail" class="form-control" type="text" name="featured_thumbnail">
+                        <input id="featured_thumbnail" class="form-control" type="text" name="featured_thumbnail" value="{{ $blogs->featured_thumbnail_image }}">
                       </div>
                     </div>
                   </div>

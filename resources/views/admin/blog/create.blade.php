@@ -104,8 +104,8 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_id" id="" class="form-control" required>
-                          <option value="">Select Author</option>
+                      <select name="user_ids[]" id="" class="form-control" required multiple>
+                          <option value="" disabled>Select Author</option>
                           @foreach ($users as $user)
                               <option value="{{ $user->id }}">{{ $user->name }}</option>
                           @endforeach
