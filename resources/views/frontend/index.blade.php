@@ -94,6 +94,15 @@
                 var catId = $(this).data('catid');
                 window.location.href = "{{ route('index') }}?subCatId="+catId;
             });
+
+            $(".offcanvas-menu-btn").click(function(){
+                $(this).toggleClass("close");
+                $('.case_studies-filters-wrap').toggleClass("open");
+            });
+
+            $(".case_studies-filters-wrap > li.has-dropdown").click(function(){
+                $(this).toggleClass("active");
+            });
         });
     </script>
 @endpush

@@ -97,23 +97,16 @@ body.has-no-banner {
                         top: 5px;
                         margin: auto;
                     }
-                    ul {
-                        li {
-                            a {
-                                padding: 15px;
-                                font-size: 14px;
-                                transition: all 0.3s ease;
-
-                                &:hover {
-                                    background-color: $primary;
-                                    color: #fff;
-                                }
-                            }
-                            &:not(:last-child) {
-                                border-bottom: 1px solid #eee;
+                    @media (min-width: 768px) {
+                        &:hover {
+                            ul {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translateY(0);
                             }
                         }
-
+                    }
+                    ul {
                         @media (min-width: 768px) {
                             position: absolute;
                             min-width: 250px;
@@ -126,15 +119,21 @@ body.has-no-banner {
                             transform: translateY(15px);
                             transition: all 0.3s ease;
                             z-index: 9999;
-                        }
-                    }
 
-                    @media (min-width: 768px) {
-                        &:hover {
-                            ul {
-                                opacity: 1;
-                                visibility: visible;
-                                transform: translateY(0);
+                            li {
+                                a {
+                                    padding: 15px;
+                                    font-size: 14px;
+                                    transition: all 0.3s ease;
+    
+                                    &:hover {
+                                        background-color: $primary;
+                                        color: #fff;
+                                    }
+                                }
+                                &:not(:last-child) {
+                                    border-bottom: 1px solid #eee;
+                                }
                             }
                         }
                     }
@@ -149,16 +148,63 @@ body.has-no-banner {
                 border: 1px solid #ddd;
                 border-radius: 15px;
                 padding: 10px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                transform: translateY(15px);
 
                 > li {
                     width: 100%;
                     a {
-                        display: flex;
                         border-radius: 10px;
+                        font-size: 14px;
                     }
 
                     ul {
                         display: none;
+                        background-color: #eee;
+                        padding: 10px 20px;
+                        border-radius: 10px;
+                        margin-top: 7px;
+
+                        > li {
+                            margin-top: 10px;
+                            a {
+                                padding-bottom: 10px;
+                                position: relative;
+                                &:hover, &.active {
+                                    color: $primary;
+                                }
+                                &:before {
+                                    content: "";
+                                    width: 8px;
+                                    height: 8px;
+                                    border-radius: 50%;
+                                    background-color: $primary;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 5px;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                }
+                            }
+                            &:not(:last-child) {
+                                a {
+                                    border-bottom: 1px solid #ddd;
+                                }
+                            }
+                            &.active {
+                                a {
+                                    color: $primary;
+                                    padding-left: 15px;
+
+                                    &:before {
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     &.active {
@@ -167,7 +213,16 @@ body.has-no-banner {
                         }
                     }
                 }
+
+                &.open {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
             }
+        }
+        @media (max-width: 767px) {
+            border-bottom: 1px solid #ddd;
         }
     }
     &-list {
