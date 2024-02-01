@@ -25,7 +25,11 @@
                                 <a href="#">{{$category->name}}</a>
                                 <ul>
                                     @foreach($category->subCategories as $subCategory)
-                                        <li class="sub_category" data-catId="{{ $subCategory->id }}"><a href="javascript:;">{{ $subCategory->name }}</a></li>
+                                        <li class="sub_category 
+                                            @if(request()->has('subCatId') && request()->subCatId == $subCategory->id)
+                                                active
+                                            @endif
+                                        " data-catId="{{ $subCategory->id }}"><a href="javascript:;">{{ $subCategory->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -90,6 +94,10 @@
             $('.sub_category').click(function(){
                 var catId = $(this).data('catid');
                 window.location.href = "{{ route('index') }}?subCatId="+catId;
+            });
+
+            $(".reset-filter").click(function(){
+                location.href="{{ env('APP_URL') }}"
             });
 
             $(".offcanvas-menu-btn").click(function(){
