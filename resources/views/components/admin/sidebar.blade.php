@@ -51,6 +51,14 @@ It is just to check the uri segment value so that we can activate the currenct s
         </a>
       </li>
 
+      <!-- Users -->
+      <li class="menu-item {{Request::segment(2)== 'user' ? 'menu-item active' : ''}}">
+        <a href="{{route('user.index')}}" class="menu-link ">
+          <i class="menu-icon tf-icons bx bx-user"></i>
+          <div data-i18n="Layouts">Authors</div>
+        </a>
+      </li>
+
        <!-- Blogs  -->
        <li class="menu-item {{Request::segment(2)== 'blog' ? 'menu-item active' : ''}}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -70,14 +78,6 @@ It is just to check the uri segment value so that we can activate the currenct s
             </a>
           </li>
         </ul>
-      </li>
-
-      <!-- Users -->
-      <li class="menu-item {{Request::segment(2)== 'user' ? 'menu-item active' : ''}}">
-        <a href="{{route('user.index')}}" class="menu-link ">
-          <i class="menu-icon tf-icons bx bx-user"></i>
-          <div data-i18n="Layouts">Authors</div>
-        </a>
       </li>
     </ul>
   </aside>

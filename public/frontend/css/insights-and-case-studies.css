@@ -112,8 +112,13 @@ body.has-no-banner #cssmenu > ul > li > a {
     padding: 15px;
     font-size: 14px;
     transition: all 0.3s ease;
+    color: #000;
   }
   .case_studies-filters-wrap > li.has-dropdown ul li a:hover {
+    background-color: #4969bb;
+    color: #fff;
+  }
+  .case_studies-filters-wrap > li.has-dropdown ul li.active a {
     background-color: #4969bb;
     color: #fff;
   }
@@ -243,11 +248,22 @@ body.has-no-banner #cssmenu > ul > li > a {
 .case_studies-inner-banner-wrap {
   max-width: 600px;
 }
+@media (max-width: 767px) {
+  .case_studies-inner-banner {
+    min-height: inherit;
+    padding: 70px 0;
+  }
+}
 .case_studies-inner-cat-title {
   font-size: 20px;
   color: #ddd;
   text-transform: uppercase;
   margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .case_studies-inner-cat-title {
+    font-size: 14px;
+  }
 }
 .case_studies-inner-title {
   font-size: 42px;
@@ -255,9 +271,19 @@ body.has-no-banner #cssmenu > ul > li > a {
   font-weight: 400;
   margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+  .case_studies-inner-title {
+    font-size: 24px;
+  }
+}
 .case_studies-inner-short_dec {
   font-size: 18px;
   color: #fff;
+}
+@media (max-width: 767px) {
+  .case_studies-inner-short_dec {
+    font-size: 16px;
+  }
 }
 .case_studies-inner-author {
   font-size: 18px;
@@ -288,6 +314,11 @@ body.has-no-banner #cssmenu > ul > li > a {
   display: grid;
   grid-template-columns: 1fr 30%;
   gap: 60px;
+}
+@media (max-width: 767px) {
+  .case_studies-inner-body-wrap {
+    grid-template-columns: 1fr;
+  }
 }
 .case_studies-inner-body-content h2, .case_studies-inner-body-content h3, .case_studies-inner-body-content h4, .case_studies-inner-body-content h5 {
   margin-bottom: 30px;
@@ -358,6 +389,23 @@ body.has-no-banner #cssmenu > ul > li > a {
   }
 }
 
+.reset-filter {
+  cursor: pointer;
+  background: #ddd;
+  padding: 5px 15px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+.reset-filter:hover {
+  background-color: #f3c0c0;
+}
+@media (max-width: 767px) {
+  .reset-filter {
+    position: absolute;
+    right: 40px;
+  }
+}
+
 /* ----- Post Card ----- */
 .post_card {
   margin-bottom: 50px;
@@ -371,15 +419,26 @@ body.has-no-banner #cssmenu > ul > li > a {
   background-size: cover;
   background-position: center;
   transition: all 0.5s ease;
-}
-.post_card-img img {
+  min-height: 275px;
   width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 767px) {
+  .post_card-img a {
+    min-height: 275px;
+  }
+}
+@media (max-width: 575px) {
+  .post_card-img a {
+    min-height: 200px;
+  }
 }
 .post_card-cat {
   margin-bottom: 20px;
 }
 .post_card-cat-title {
-  font-size: 18px;
+  font-size: 16px;
   color: #4969bb;
   text-transform: uppercase;
   font-family: "linik_sansregular";
@@ -428,6 +487,19 @@ body.has-no-banner #cssmenu > ul > li > a {
   top: 0;
   border-radius: 10px;
 }
+.post_card-featured .post_card-img a {
+  min-height: 350px;
+}
+@media (max-width: 767px) {
+  .post_card-featured .post_card-img a {
+    min-height: 275px;
+  }
+}
+@media (max-width: 575px) {
+  .post_card-featured .post_card-img a {
+    min-height: 200px;
+  }
+}
 @media (min-width: 768px) {
   .post_card-featured .post_card-cat-title {
     color: #fff;
@@ -450,6 +522,49 @@ body.has-no-banner #cssmenu > ul > li > a {
 }
 .post_card:hover .post_card-img a {
   transform: scale(1.1);
+}
+
+/* ----- Author Section ----- */
+.author-sec {
+  padding: 70px 0;
+  background-color: #eee;
+}
+.author-sec-title {
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+@media (max-width: 767px) {
+  .author-sec-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+.author_card-head img {
+  max-width: 175px;
+  margin-bottom: 20px;
+}
+.author_card-body {
+  font-size: 18px;
+}
+.author_card-body h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.author_card-social {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.author_card-social li a {
+  transition: all 0.3s ease;
+}
+.author_card-social li a svg {
+  fill: #000;
+}
+.author_card-social li a:hover svg {
+  fill: #4969bb;
 }
 
 /* ----- Contact Us ----- */

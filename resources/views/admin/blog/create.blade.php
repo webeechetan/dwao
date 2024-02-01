@@ -220,7 +220,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 mt-4 text-center"><a class="btn btn-success add_more_insights">Add More</a></div>
+                  <div class="col-12 mt-4 text-center"><a href="javascript:;" class="btn btn-success add_more_insights">Add More</a></div>
 
               </div>
                 <button type="submit" class="btn btn-primary mt-4">Save</button>
@@ -288,7 +288,7 @@ $(document).ready(function (){
           <input type="text" name="trending_insights_url[]" class="form-control" placeholder="Trending Insights URL">
         </div>
       </div>
-      <div class="d-flex align-items-end"><a class="btn btn-danger remove_insights mb-3">Remove</a></div>
+      <div class="d-flex align-items-end"><a href="javascript:;" class="btn btn-danger remove_insights mb-3">Remove</a></div>
     </div>
     `;
     $('.trending_insights').append(insights);
