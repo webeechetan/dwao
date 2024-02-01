@@ -114,3 +114,8 @@ div.authentication-wrapper.authentication-basic .authentication-inner .card .app
   padding: 15px;
   border-radius: 4px;
 }
+
+form .error + .error {
+  display: block;
+  width: 100%;
+}

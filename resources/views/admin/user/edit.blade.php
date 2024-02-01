@@ -50,7 +50,7 @@
               <div class="col-md-6">
                 <div class="mb-3">
                     <label class="form-label" for="basic-icon-default-fullname">Bio </label>
-                    <textarea class="form-control" id="bio" rows="3" name="bio">{{ $user->bio }}</textarea>
+                    <input type="text" class="form-control" id="bio" name="bio" value="{{ $user->bio }}">
                 </div>
               </div>
 
