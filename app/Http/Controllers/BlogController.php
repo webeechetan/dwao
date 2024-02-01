@@ -72,6 +72,7 @@ class BlogController extends Controller
         $blogs->featured_thumbnail_image = $request->featured_thumbnail;
         $blogs->is_featured = $request->is_featured ? 1 : 0;
         $blogs->user_id = $request->user_id;
+        $blogs->minutes = $request->minutes;
 
 
         if($blogs->save()){
@@ -140,6 +141,7 @@ class BlogController extends Controller
         $blog->featured_thumbnail_image = $request->featured_thumbnail;
         $blog->is_featured = $request->is_featured ? 1 : 0;
         $blog->user_id = $request->user_id;
+        $blog->minutes = $request->minutes;
         
         if($blog->save()){
             $this->alert('success','Blog Updated successfully','success');
@@ -166,5 +168,10 @@ class BlogController extends Controller
             $this->alert('error','Something went wrong','danger');
             return redirect()->back();  
         }
+    }
+
+    public function getSubCategories($id){
+        $subCategories = SubCategory::where('category_id',$id)->get();
+        return response()->json($subCategories);
     }
 }

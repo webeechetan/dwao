@@ -46,10 +46,16 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->bio = $request->bio;
-        $user->image = $request->image;
+        if($request->image){
+            $user->image = $request->image;
+        }else{
+            $user->image =  env('APP_URL').'/storage/' .'default_user.jpg';
+        }
         $user->linkedin = $request->linkedin;
         $user->facebook = $request->facebook;
         $user->twitter = $request->twitter;
+        $user->instagram = $request->instagram;
+        $user->youtube = $request->youtube;
         $user->password = Hash::make(rand(1,10000));
 
         if($user->save()){
@@ -105,6 +111,8 @@ class UserController extends Controller
         $user->linkedin = $request->linkedin;
         $user->facebook = $request->facebook;
         $user->twitter = $request->twitter;
+        $user->instagram = $request->instagram;
+        $user->youtube = $request->youtube;
         $user->password = Hash::make(rand(1,10000));
 
         if($user->save()){

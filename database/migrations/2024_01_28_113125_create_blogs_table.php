@@ -35,6 +35,7 @@ return new class extends Migration
             $table->date('publish_date')->default(date('Y-m-d'));
             $table->longText('trending_insights_title')->nullable();
             $table->longText('trending_insights_url')->nullable();
+            $table->longText('minutes')->nullable();
             $table->timestamps();
         });
     }

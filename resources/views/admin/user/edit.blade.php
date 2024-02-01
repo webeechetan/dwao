@@ -74,6 +74,19 @@
                     <input type="text" class="form-control dt-full-name" placeholder="LinkedIn" name="linkedin" value="{{ $user->linkedin }}" />
                 </div>
               </div>
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-icon-default-fullname">Instagram URL </label>
+                    <input type="text" class="form-control dt-full-name" placeholder="Instagram" name="instagram"  value="{{ $user->instagram }}"/>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-icon-default-fullname">Youtube URL </label>
+                    <input type="text" class="form-control dt-full-name" placeholder="Youtube" name="youtube" value="{{ $user->youtube }}" />
+                </div>
+              </div>
             </div>
 
             <button type="submit" class="btn btn-primary mt-4">Update Author</button>

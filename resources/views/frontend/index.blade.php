@@ -20,26 +20,21 @@
                         </button>
                     </div>
                     <ul class="case_studies-filters-wrap">
-                        <li class="has-dropdown">
-                            <a href="#">Capabilities</a>
-                            <ul>
-                                @foreach($categories as $category)
-                                    <li class="category" data-catId="{{ $category->id }}"><a >{{ $category->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="#">Case Studies</a>
-                            <ul>
-                                @foreach($subCategories as $subCategory)
-                                    <li class="sub_category" data-catId="{{ $category->id }}"><a >{{ $subCategory->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
+                        @foreach($categories as $category)
+                            <li class="has-dropdown">
+                                <a href="#">{{$category->name}}</a>
+                                <ul>
+                                    @foreach($category->subCategories as $subCategory)
+                                        <li class="sub_category" data-catId="{{ $subCategory->id }}"><a >{{ $subCategory->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
         </div>
+        @if(!request()->has('subCatId'))
         <div class="case_studies-feature_list">
             @foreach ($featuredBlogs as $blog)
                 <div class="post_card post_card-featured">
@@ -58,6 +53,7 @@
                 </div>
             @endforeach
         </div>
+        @endif
 
         <div class="case_studies-list">
             @foreach($recentBlogs as $blog)
