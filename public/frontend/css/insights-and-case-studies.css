@@ -146,6 +146,7 @@ body.has-no-banner #cssmenu > ul > li > a {
   .case_studies-filters-wrap > li a {
     border-radius: 10px;
     font-size: 14px;
+    color: #000;
   }
   .case_studies-filters-wrap > li ul {
     display: none;
