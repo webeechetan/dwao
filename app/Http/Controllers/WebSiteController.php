@@ -28,11 +28,11 @@ class WebSiteController extends Controller
 
         $featuredBlogs = Blog::where('is_featured',1)->orderBy('id','desc')->get();
         if($request->catId){
-            $recentBlogs = Blog::where('category_id',$request->catId)->orderBy('id','desc')->get();
+            $recentBlogs = Blog::where('category_id',$request->catId)->orderBy('id','desc')->paginate(1);
         }elseif($request->subCatId){
-            $recentBlogs = Blog::where('sub_category_id',$request->subCatId)->orderBy('id','desc')->get();
+            $recentBlogs = Blog::where('sub_category_id',$request->subCatId)->orderBy('id','desc')->paginate(1);
         }else{
-            $recentBlogs = Blog::orderBy('id','desc')->get();
+            $recentBlogs = Blog::orderBy('id','desc')->paginate(1);
         }
         $categories = Category::all();
         $subCategories = SubCategory::all();

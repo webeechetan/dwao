@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        @if(!request()->has('subCatId'))
+        @if(!request()->has('subCatId') && $featuredBlogs->count() > 0)
         <div class="case_studies-feature_list featured-blog-list">
             @foreach ($featuredBlogs as $blog)
                 <div class="post_card post_card-featured ">
@@ -84,6 +84,7 @@
                     </div>
                 </div>
             @endforeach
+            {{ $recentBlogs->links() }}
         </div>
     </div>
 </section>
