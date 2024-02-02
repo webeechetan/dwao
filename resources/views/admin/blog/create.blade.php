@@ -118,7 +118,7 @@
                   <div class="col-md-12">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Page Content <span class="text-danger"><b>*</b></span></label>
-                      <textarea id="editor" name="description" class="form-control" placeholder="Description"></textarea>
+                      <textarea id="editor" required name="description" class="form-control" placeholder="Description"></textarea>
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
                       @enderror

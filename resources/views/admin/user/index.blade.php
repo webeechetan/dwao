@@ -29,11 +29,11 @@
                             <td>{{$user->email}}</td>
                             <td><img src="{{$user->image}}" alt="" width="50"></td>
                             <td>
-                                <a href="{{route('user.edit', $user->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="{{route('user.edit', $user->id)}}" class="btn btn-primary btn-sm"><i class="bx bx-edit"></i></a>
                                 <form action="{{route('user.destroy', $user->id)}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="bx bx-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
