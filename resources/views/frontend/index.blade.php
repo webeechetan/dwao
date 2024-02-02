@@ -3,6 +3,13 @@
 @section('meta_title','DWAO - Blogs')
 @section('meta_description',$meta->meta_description)
 
+@push('styles')
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+@endpush
+
 @section('content')
 <section class="case_studies no-banner">
     <div class="container">
@@ -40,9 +47,9 @@
             </div>
         </div>
         @if(!request()->has('subCatId'))
-        <div class="case_studies-feature_list">
+        <div class="case_studies-feature_list featured-blog-list">
             @foreach ($featuredBlogs as $blog)
-                <div class="post_card post_card-featured">
+                <div class="post_card post_card-featured ">
                     <div class="post_card-img">
                         <a href="{{ route('blog.view',$blog->slug) }}" style="background-image: url('{{ $blog->featured_thumbnail_image }}');"></a>
                     </div>
@@ -84,8 +91,36 @@
 @endsection
 
 @push('scripts')
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         $(document).ready(function(){
+
+            $('.case_studies-feature_list').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                responsive: [
+                    {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                    }
+                    },
+                    {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    }
+                ]
+            });
+
             $('.category').click(function(){
                 var catId = $(this).data('catid');
                 window.location.href = "{{ route('index') }}?catId="+catId;

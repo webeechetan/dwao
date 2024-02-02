@@ -26,7 +26,7 @@ class WebSiteController extends Controller
 
     public function viewIndex(Request $request){
 
-        $featuredBlogs = Blog::where('is_featured',1)->orderBy('id','desc')->take(2)->get();
+        $featuredBlogs = Blog::where('is_featured',1)->orderBy('id','desc')->get();
         if($request->catId){
             $recentBlogs = Blog::where('category_id',$request->catId)->orderBy('id','desc')->get();
         }elseif($request->subCatId){
