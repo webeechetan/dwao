@@ -47,7 +47,7 @@
             </div>
         </div>
         @if(!request()->has('subCatId'))
-        <div class="case_studies-feature_list featured-blog-list">
+        <div class="case_studies-feature_list">
             @foreach ($featuredBlogs as $blog)
                 <div class="post_card post_card-featured ">
                     <div class="post_card-img">
@@ -97,26 +97,19 @@
 
             $('.case_studies-feature_list').slick({
                 infinite: true,
-                slidesToShow: 3,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 2000,
                 arrows: false,
+                dots: true,
                 responsive: [
                     {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                    }
-                    },
-                    {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
                 ]
             });

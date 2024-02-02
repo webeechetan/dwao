@@ -237,18 +237,24 @@ body.has-no-banner {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+        margin-top: 50px;
 
         @media (max-width: 767px) {
             grid-template-columns: 1fr;
+            margin-top: 90px;
         }
     }
     &-feature_list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-
-        @media (max-width: 767px) {
-            grid-template-columns: 1fr;
+        .slick {
+            &-track {
+                margin-left: 0;
+            }
+            &-list {
+                margin: 0 -15px;
+            }
+            &-dots li button:before {
+                font-size: 12px;
+            }
         }
     }
 
@@ -463,6 +469,9 @@ body.has-no-banner {
 /* ----- Post Card ----- */
 .post_card {
     margin-bottom: 50px;
+    @media (max-width: 767px) {
+        margin-bottom: 30px;
+    }
     &-img {
         border-radius: 10px;
         overflow: hidden;
@@ -521,6 +530,8 @@ body.has-no-banner {
 
     &-featured {
         position: relative;
+        padding: 0 15px;
+        margin-bottom: 15px;
 
         &-badge {
             position: absolute;

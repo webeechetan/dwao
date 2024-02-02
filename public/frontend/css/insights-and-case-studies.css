@@ -206,21 +206,22 @@ body.has-no-banner #cssmenu > ul > li > a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  margin-top: 50px;
 }
 @media (max-width: 767px) {
   .case_studies-list {
     grid-template-columns: 1fr;
+    margin-top: 90px;
   }
 }
-.case_studies-feature_list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+.case_studies-feature_list .slick-track {
+  margin-left: 0;
 }
-@media (max-width: 767px) {
-  .case_studies-feature_list {
-    grid-template-columns: 1fr;
-  }
+.case_studies-feature_list .slick-list {
+  margin: 0 -15px;
+}
+.case_studies-feature_list .slick-dots li button:before {
+  font-size: 12px;
 }
 .case_studies-inner-banner {
   min-height: 80vh;
@@ -411,6 +412,11 @@ body.has-no-banner #cssmenu > ul > li > a {
 .post_card {
   margin-bottom: 50px;
 }
+@media (max-width: 767px) {
+  .post_card {
+    margin-bottom: 30px;
+  }
+}
 .post_card-img {
   border-radius: 10px;
   overflow: hidden;
@@ -465,6 +471,8 @@ body.has-no-banner #cssmenu > ul > li > a {
 }
 .post_card-featured {
   position: relative;
+  padding: 0 15px;
+  margin-bottom: 15px;
 }
 .post_card-featured-badge {
   position: absolute;
