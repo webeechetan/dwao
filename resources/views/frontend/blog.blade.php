@@ -16,25 +16,36 @@
             <div class="case_studies-inner-author">By 
                 @php
                     $authors_names = '';
+                    $totalAuthors = count($blog->users);
+                    $currentIndex = 0;
                 @endphp
-                    @foreach($blog->users as $user)
-                        @if($loop->last)
-                            @php
-                                $authors_names .= ' and '.$user->name;
-                            @endphp
-                        @elseif($loop->iteration == 1)
-                            @php
-                                $authors_names .= $user->name;
-                            @endphp
-                        @else
-                            @php
-                                $authors_names .= $user->name.', ';
-                            @endphp
-                        @endif
-
-                    @endforeach
-                    {{ $authors_names }}
+                @foreach($blog->users as $user)
+                    @php
+                        $currentIndex++; // Increment the current index for each author
+                    @endphp
+            
+                    @if($currentIndex == 1)
+                        @php
+                            // Directly append the first author's name without any prefix
+                            $authors_names .= $user->name;
+                        @endphp
+                    @elseif($currentIndex == $totalAuthors)
+                        @php
+                            // For the last author, prepend ' and ' if it's the last author's name
+                            $authors_names .= ' and ' . $user->name;
+                        @endphp
+                    @else
+                        @php
+                            // For any other author, append ', ' before their name
+                            $authors_names .= ', ' . $user->name;
+                        @endphp
+                    @endif
+                @endforeach
+                {{ $authors_names }}
             </div>
+            
+            
+            
             <div class="case_studies-inner-meta-title"><span> {{ $blog->publish_date }} </span> | <span>{{$blog->minutes}}</span> </div>
         </div>
     </div>
@@ -57,13 +68,13 @@
                             <li><a href="{{ route('blog.view',$relatedBlog->slug) }}"><span>{{ $relatedBlog->title}}</span><span class="case_studies-sidebar-options-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m19 12-7-6v5H6v2h6v5z"></path></svg></span></a></li>
                         @endforeach
                     </ul>
+                    <hr>
                     @endif
                     @php
                         $trending_insights_title = explode(',',$blog->trending_insights_title);
                         $trending_insights_url = explode(',',$blog->trending_insights_url); 
                     @endphp
                     @if(count($trending_insights_title) > 1)
-                    <hr>
                     <h2>Trending insights</h2>
                     <ol class="case_studies-sidebar-options-insights">
                         
