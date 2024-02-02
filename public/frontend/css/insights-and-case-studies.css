@@ -218,7 +218,7 @@ body.has-no-banner #cssmenu > ul > li > a {
   margin-left: 0;
 }
 .case_studies-feature_list .slick-list {
-  margin: 0 -15px;
+  margin: 0 -10px;
 }
 .case_studies-feature_list .slick-dots li button:before {
   font-size: 12px;
@@ -476,7 +476,7 @@ body.has-no-banner #cssmenu > ul > li > a {
 }
 .post_card-featured {
   position: relative;
-  padding: 0 15px;
+  padding: 0 10px;
   margin-bottom: 15px;
 }
 .post_card-featured-badge {
@@ -521,9 +521,10 @@ body.has-no-banner #cssmenu > ul > li > a {
   .post_card-featured .post_card-body {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 10px;
     padding: 20px 30px;
     z-index: 9;
+    width: calc(100% - 20px);
   }
   .post_card-featured .post_card-body-content-title a {
     color: #fff;
