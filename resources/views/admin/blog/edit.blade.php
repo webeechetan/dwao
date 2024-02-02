@@ -137,7 +137,7 @@
                   <div class="col-md-12">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Page Content<span class="text-danger"><b>*</b></span></label>
-                      <textarea id="editor" name="description"  class="form-control" placeholder="Description">{{strip_tags($blogs->description)}}</textarea>
+                      <textarea id="editor" name="description"  class="form-control" placeholder="Description">{{$blogs->description}}</textarea>
                       @error('description')    
                           <div class="text-danger mt-2">{{ $message }}</div>
                       @enderror
