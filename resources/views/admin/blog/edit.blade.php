@@ -227,6 +227,7 @@
                             $trending_insights_url = explode(',',$blogs->trending_insights_url);
                         @endphp
                         @foreach($trending_insights_title as $title)
+                        <div class="row">
                           <div class="col-md-6">
                             <div class="mb-3">
                               <label class="form-label" for="basic-icon-default-message">Title</label>
@@ -242,6 +243,10 @@
                               value="{{ $trending_insights_url[$loop->index] }}">
                             </div>
                           </div>
+                          @if($loop->index > 0)
+                            <div class="d-flex align-items-end"><a href="javascript:;" class="btn btn-danger remove_insights mb-3">Remove</a></div>
+                          @endif
+                        </div>
                         @endforeach
                       </div>
                     </div>
