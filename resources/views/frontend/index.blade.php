@@ -46,8 +46,8 @@
                 </div>
             </div>
         </div>
-        @if(!request()->has('subCatId'))
-        <div class="case_studies-feature_list">
+        @if(!request()->has('subCatId') && $featuredBlogs->count() > 0)
+        <div class="case_studies-feature_list featured-blog-list">
             @foreach ($featuredBlogs as $blog)
                 <div class="post_card post_card-featured ">
                     <div class="post_card-img">
@@ -85,6 +85,7 @@
                 </div>
             @endforeach
         </div>
+        {{ $recentBlogs->links() }}
     </div>
 </section>
 
@@ -100,7 +101,7 @@
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 autoplay: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: 3000,
                 arrows: false,
                 dots: true,
                 responsive: [
