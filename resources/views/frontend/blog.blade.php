@@ -13,7 +13,28 @@
             <div class="case_studies-inner-cat-title"><span>{{$blog->category->name}}</span> | <span>{{ $blog->subCategory->name }}</span></div>
             <h2 class="case_studies-inner-title">{{ $blog->title }}</h2>
             <div class="case_studies-inner-short_dec">{{ $blog->short_description }}</div>
-            <div class="case_studies-inner-author">By Jane Doe and John Doe</div>
+            <div class="case_studies-inner-author">By 
+                @php
+                    $authors_names = '';
+                @endphp
+                    @foreach($blog->users as $user)
+                        @if($loop->last)
+                            @php
+                                $authors_names .= ' and '.$user->name;
+                            @endphp
+                        @elseif($loop->iteration == 1)
+                            @php
+                                $authors_names .= $user->name;
+                            @endphp
+                        @else
+                            @php
+                                $authors_names .= $user->name.', ';
+                            @endphp
+                        @endif
+
+                    @endforeach
+                    {{ $authors_names }}
+            </div>
             <div class="case_studies-inner-meta-title"><span> {{ $blog->publish_date }} </span> | <span>{{$blog->minutes}}</span> </div>
         </div>
     </div>
