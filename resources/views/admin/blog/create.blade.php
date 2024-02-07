@@ -242,6 +242,47 @@
 
 $(document).ready(function (){
 
+  $("#thumbnail").change(function(){
+    let thumbnail = $(this).val();
+    console.log(thumbnail);
+    // check for white space in path
+    if (/\s/g.test(thumbnail)) {
+      setTimeout(() => {
+        alert('Thumbnail path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
+
+  $("#banner").change(function(){
+    let banner = $(this).val();
+    console.log(banner);
+    // check for white space in path
+    if (/\s/g.test(banner)) {
+      setTimeout(() => {
+        alert('Banner path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
+
+  $("#featured_thumbnail").change(function(){
+    let featured_thumbnail = $(this).val();
+    console.log(featured_thumbnail);
+    // check for white space in path
+    if (/\s/g.test(featured_thumbnail)) {
+      setTimeout(() => {
+        alert('Featured Thumbnail path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
+
+
+
   $(".categories").change(function(){
     let catId = $(this).val();
     $.ajax({
