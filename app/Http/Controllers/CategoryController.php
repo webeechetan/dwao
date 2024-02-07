@@ -38,7 +38,7 @@ class CategoryController extends Controller
     {
         $request -> validate([
 
-            'category_name' => 'required'
+            'category_name' => 'required|unique:categories,name'
         ]);
         
         $category = new Category();

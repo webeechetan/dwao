@@ -20,9 +20,6 @@
                         @endforeach
                     </select>
                 </div>
-                @error('category_name')    
-                    <div class="text-danger mt-2">{{ $message }}</div>
-                @enderror
             </div>
             <div class="mb-3">
                 <label class="form-label" for="basic-icon-default-fullname">Sub Category Name</label>

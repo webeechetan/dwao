@@ -121,7 +121,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_ids[]" id="" class="form-control" required multiple>
+                      <select name="user_ids[]" id="" class="form-control users" required multiple>
                           <option value="">Select Author</option>
                           @foreach ($users as $user)
                               <option value="{{ $user->id }}"
@@ -262,11 +262,20 @@
   </div>
 @endsection
 
+@section('styles')
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
+
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
 
 $(document).ready(function (){
+
+  $('.users').select2({
+    placeholder: "Select Author",
+  });
 
   $(".categories").change(function(){
     let catId = $(this).val();

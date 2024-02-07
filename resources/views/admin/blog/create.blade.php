@@ -89,7 +89,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span></label>
+                      <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span> Recommended Size () </label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
@@ -104,7 +104,7 @@
                   <div class="col-md-4">
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_ids[]" id="" class="form-control" required multiple>
+                      <select name="user_ids[]" id="" class="form-control users" required multiple>
                           <option value="" disabled>Select Author</option>
                           @foreach ($users as $user)
                               <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -231,7 +231,11 @@
   </div>
 @endsection
 
+@section('styles')
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 <script>
@@ -251,6 +255,10 @@ $(document).ready(function (){
         $('.sub_categories').html(html);
       }
     });
+  });
+
+  $('.users').select2({
+    placeholder: "Select Author",
   });
 
   $(".post-form").validate({

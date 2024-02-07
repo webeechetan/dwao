@@ -60,7 +60,7 @@ It is just to check the uri segment value so that we can activate the currenct s
       </li>
 
        <!-- Blogs  -->
-       <li class="menu-item {{Request::segment(2)== 'blog' ? 'menu-item active' : ''}}">
+       <li class="menu-item {{Request::segment(2)== 'blog' ? 'menu-item active open' : ''}}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-detail"></i>
           <div data-i18n="Layouts">Blogs</div>

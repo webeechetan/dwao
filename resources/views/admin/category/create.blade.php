@@ -13,7 +13,7 @@
                 <label class="form-label" for="basic-icon-default-fullname">Category Name</label>
                 <div class="input-group input-group-merge">
                 <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                <input type="text" class="form-control" id="category_name" name="category_name">
+                <input type="text" class="form-control" id="category_name" name="category_name" value="">
                 </div>
                 @error('category_name')    
                     <div class="text-danger mt-2">{{ $message }}</div>
