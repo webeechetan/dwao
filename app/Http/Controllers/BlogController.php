@@ -143,7 +143,6 @@ class BlogController extends Controller
         $blog->trending_insights_url = implode(',',$request->trending_insights_url);
         $blog->featured_thumbnail_image = $request->featured_thumbnail;
         $blog->is_featured = $request->is_featured ? 1 : 0;
-        $blog->user_id = $request->user_id;
         $blog->minutes = $request->minutes;
         $blog->banner_alignment = $request->banner_alignment;
 
