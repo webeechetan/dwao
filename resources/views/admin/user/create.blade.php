@@ -40,7 +40,7 @@
                         <i class="menu-icon tf-icons bx bx-file"></i>Choose
                       </a>
                     </span>
-                    <input id="image" class="form-control" type="text" name="image">
+                    <input required id="image" class="form-control" type="text" name="image">
                   </div>
                 </div>
               </div>

@@ -89,7 +89,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span> Recommended Size () </label>
+                      <label class="form-label" for="basic-icon-default-message">Banner <span class="text-danger"><b>*</b></span> Recommended Size (920*750) </label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
@@ -103,17 +103,13 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_ids[]" id="" class="form-control users" required multiple>
-                          <option value="" disabled>Select Author</option>
-                          @foreach ($users as $user)
-                              <option value="{{ $user->id }}">{{ $user->name }}</option>
-                          @endforeach
+                      <label class="form-label" for="basic-icon-default-message">Banner Alignment</label>
+                      <select class="form-control" name="banner_alignment" id="banner_alignment">
+                        <option value="left" selected>Left</option>
+                        <option value="right">Right</option>
                       </select>
                     </div>
                   </div>
-
-
                   
                   <div class="col-md-12">
                     <div class="mb-3">
@@ -131,6 +127,20 @@
                       <input type="text" name="minutes" class="form-control" placeholder="5 Minutes">
                     </div>
                   </div>
+
+                  
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
+                      <select name="user_ids[]" id="" class="form-control users" required multiple>
+                          <option value="" disabled>Select Author</option>
+                          @foreach ($users as $user)
+                              <option value="{{ $user->id }}">{{ $user->name }}</option>
+                          @endforeach
+                      </select>
+                    </div>
+                  </div>
+                  
 
                   <div class="col-12">
                     <hr>

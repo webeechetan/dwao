@@ -35,6 +35,7 @@ return new class extends Migration
             $table->longText('trending_insights_title')->nullable();
             $table->longText('trending_insights_url')->nullable();
             $table->longText('minutes')->nullable();
+            $table->string('banner_alignment')->nullable()->default('left');
             $table->timestamps();
         });
     }

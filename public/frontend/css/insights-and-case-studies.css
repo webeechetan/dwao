@@ -844,4 +844,12 @@ body.has-no-banner #cssmenu > ul > li > a {
   }
 }
 
+.print-svg path {
+  fill: #f8f5f5;
+}
+
+.ml-auto{
+  margin-left: auto;
+}
+
 /*# sourceMappingURL=insights-and-case-studies.css.map */

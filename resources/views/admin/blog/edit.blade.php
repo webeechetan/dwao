@@ -92,7 +92,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span></label>
+                      <label class="form-label" for="basic-icon-default-message">Thumbnail<span class="text-danger"><b>*</b></span> (600*500)</label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -106,7 +106,7 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-message">Banner<span class="text-danger"><b>*</b></span></label>
+                      <label class="form-label" for="basic-icon-default-message">Banner<span class="text-danger"><b>*</b></span> Recommended Size (920*750)</label>
                       <div class="input-group">
                         <span class="input-group-btn text-white">
                           <a id="banner-fm" data-input="banner" data-preview="holder" class="btn btn-primary">
@@ -120,19 +120,15 @@
 
                   <div class="col-md-4">
                     <div class="mb-3">
-                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
-                      <select name="user_ids[]" id="" class="form-control users" required multiple>
-                          <option value="">Select Author</option>
-                          @foreach ($users as $user)
-                              <option value="{{ $user->id }}"
-                                @foreach ($blogs->users as $blog_user)
-                                  @if($blog_user->id == $user->id) selected @endif
-                                @endforeach
-                                >{{ $user->name }}</option>
-                          @endforeach
+                      <label class="form-label" for="basic-icon-default-message">Banner Alignment</label>
+                      <select class="form-control" name="banner_alignment" id="banner_alignment">
+                        <option value="left" @if($blogs->banner_alignment == 'left') selected @endif>Left</option>
+                        <option value="right" @if($blogs->banner_alignment == 'right') selected @endif>Right</option>
                       </select>
                     </div>
                   </div>
+
+                  
                   
                   <div class="col-md-12">
                     <div class="mb-3">
@@ -148,6 +144,22 @@
                     <div class="mb-3">
                       <label class="form-label" for="basic-icon-default-message">Minutes Read</label>
                       <input type="text" name="minutes" class="form-control" placeholder="5 Minutes" value="{{ $blogs->minutes }}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="basic-icon-default-fullname">Author<span class="text-danger"><b>*</b></span> </label>
+                      <select name="user_ids[]" id="" class="form-control users" required multiple>
+                          <option value="">Select Author</option>
+                          @foreach ($users as $user)
+                              <option value="{{ $user->id }}"
+                                @foreach ($blogs->users as $blog_user)
+                                  @if($blog_user->id == $user->id) selected @endif
+                                @endforeach
+                                >{{ $user->name }}</option>
+                          @endforeach
+                      </select>
                     </div>
                   </div>
 
@@ -272,6 +284,45 @@
 <script>
 
 $(document).ready(function (){
+
+  $("#thumbnail").change(function(){
+    let thumbnail = $(this).val();
+    console.log(thumbnail);
+    // check for white space in path
+    if (/\s/g.test(thumbnail)) {
+      setTimeout(() => {
+        alert('Thumbnail path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
+
+  $("#banner").change(function(){
+    let banner = $(this).val();
+    console.log(banner);
+    // check for white space in path
+    if (/\s/g.test(banner)) {
+      setTimeout(() => {
+        alert('Banner path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
+
+  $("#featured_thumbnail").change(function(){
+    let featured_thumbnail = $(this).val();
+    console.log(featured_thumbnail);
+    // check for white space in path
+    if (/\s/g.test(featured_thumbnail)) {
+      setTimeout(() => {
+        alert('Featured Thumbnail path should not contain white space');
+        $(this).val('');
+      }, 500);
+    }
+
+  });
 
   $('.users').select2({
     placeholder: "Select Author",

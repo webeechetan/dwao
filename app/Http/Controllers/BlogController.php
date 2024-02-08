@@ -72,6 +72,7 @@ class BlogController extends Controller
         $blogs->featured_thumbnail_image = $request->featured_thumbnail;
         $blogs->is_featured = $request->is_featured ? 1 : 0;
         $blogs->minutes = $request->minutes;
+        $blogs->banner_alignment = $request->banner_alignment;
 
         if($blogs->save()){
             if($request->has('user_ids')){
@@ -144,6 +145,7 @@ class BlogController extends Controller
         $blog->is_featured = $request->is_featured ? 1 : 0;
         $blog->user_id = $request->user_id;
         $blog->minutes = $request->minutes;
+        $blog->banner_alignment = $request->banner_alignment;
 
         if($request->has('user_ids')){
             $blog->users()->sync($request->user_ids);
