@@ -620,10 +620,10 @@ body.has-no-banner #cssmenu > ul > li > a {
   transition: all 0.3s ease;
 }
 .author_card-social li a svg {
-  fill: #000;
+  fill: #4969bb;
 }
 .author_card-social li a:hover svg {
-  fill: #4969bb;
+  fill: #000;
 }
 @media (max-width: 575px) {
   .author_card-social {
